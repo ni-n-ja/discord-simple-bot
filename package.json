@@ -1,0 +1,25 @@
+{
+  "name": "wbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rest.js",
+  "dependencies": {
+    "koa": "^2.13.0",
+    "websocket": "^1.0.31",
+    "ws": "^7.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ni-n-ja/wbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ni-n-ja/wbot/issues"
+  },
+  "homepage": "https://github.com/ni-n-ja/wbot#readme"
+}
