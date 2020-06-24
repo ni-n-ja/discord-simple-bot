@@ -1,4 +1,4 @@
-const token = process.env.token;
+const token = process.env.TOKEN;
 const identity = {
     "op": 2,
     "d": {
@@ -15,6 +15,7 @@ let WebSocketClient = require('websocket').client;
 let client = new WebSocketClient();
 
 let sequence = 0;
+let session_id = 0;
 
 client.on('connectFailed', (error) => {
     console.log('Connect Error: ' + error.toString());
@@ -58,7 +59,22 @@ client.on('connect', (connection) => {
                 console.log("////Hello ACK////");
             } else if (data.op == 0) {
                 console.log("////EVENT////");
+                if (data.d && data.d.session_id) {
+                    session_id = data.d.session_id;
+                }
                 // console.log(JSON.stringify(data));
+            } else if (data.op == 7 || data.op == 6) {
+                console.log("////RECONNECT////");
+                connection.sendUTF(JSON.stringify(
+                    {
+                        "op": 6,
+                        "d": {
+                            "token": token,
+                            "session_id": session_id,
+                            "seq": sequence
+                        }
+                    }
+                ));
             } else {
                 console.log("////XXXX////");
             }
