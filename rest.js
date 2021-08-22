@@ -47,7 +47,7 @@ const post = (options) => {
 get({
     protocol: 'https:',
     host: 'discord.com',
-    path: `/api/v6/users/${process.env.userId}`,
+    path: `/api/v8/users/${process.env.userId}`,
     headers: {
         'Authorization': 'Bot ' + token
     },
@@ -57,7 +57,7 @@ get({
 post({
     protocol: 'https:',
     host: 'discord.com',
-    path: `/api/v6/channels/${process.env.channelId}/messages`,
+    path: `/api/v8/channels/${process.env.channelId}/messages`,
     headers: {
         'Authorization': 'Bot ' + token,
         'Content-Type': 'application/json',
